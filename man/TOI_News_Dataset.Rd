@@ -25,9 +25,10 @@ Creates an interim news dataset based on user-defined keywords
 }}
 
 \examples{
-# Creates Dataset based on keysword
+#### Creates Dataset based on keysword
+\dontrun{
 NewsData = TOI_News_Dataset("Goibibo")
-
+}
 }
 \seealso{
 \code{\link{TOI_News_Articles}}

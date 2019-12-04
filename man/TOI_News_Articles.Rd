@@ -33,7 +33,8 @@ Creates a DataFrame or Write files disk by extracting text data
   from source and interim dataset based on user's keywords.
 }
 \examples{
-# Creates Dataset by filtering 31 days from current date
+#### Creates Dataset by filtering 31 days from current date
+\dontrun{
 NewsDataset1 = TOI_News_Articles(keywords = "Politics In US",
 IsDataFrame = TRUE,
 IsDate = TRUE,
@@ -49,6 +50,7 @@ end_date = "2019-10-20")
 
 # Write files to disk
 TOI_News_Articles(keywords = "Goibibo")
+}
 }
 \seealso{
 \code{\link{TOI_News_Dataset}}

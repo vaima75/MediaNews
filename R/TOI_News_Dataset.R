@@ -18,9 +18,10 @@
 #' @seealso \code{\link{TOI_News_Articles}}
 #'
 #' @examples
-#' # Creates Dataset based on keysword
+#' #### Creates Dataset based on keysword
+#' \dontrun{
 #' NewsData = TOI_News_Dataset("Goibibo")
-#'
+#'}
 #' @export TOI_News_Dataset
 
 TOI_News_Dataset <- function(keywords){

@@ -22,7 +22,8 @@ Cleans text and introduce custom stopwords to remove unwanted
 \examples{
 ################### Methodology #####################
 ###### For DataFrame ######
-## Creates Dataset based on keysword
+#### Creates Dataset based on keysword
+\dontrun{
 NewsData = TOI_News_Articles("Goibibo", IsDataFrame = TRUE)
 
 ## Identify any potential factor columns
@@ -33,8 +34,9 @@ NewsData[vc] = lapply(NewsData[vc], as.character)
 
 ## Clean text on specific character columns
 for (i in 1:nrow(NewsData)) NewsData$News[i] = ClearText(NewsData$News[i])
-
+}
 ######## For Character Variable #### Ex2 ####
+
 para = "Moreover, the text data we get is noisy. But, if we can learn some
 methods useful to extract important features from the noisy data, wouldn't
 scandal that be amazing ? In this tuto23rial, you'll saadc@ruby.com
@@ -53,12 +55,12 @@ clearpara = ClearText(para,
                                       "cartoon-network",
                                        "detective",
                                        "scandal"))
-
 ########### For List #############
+\dontrun{
 paraList = list(para, 1213, factor('aasd;kasdioasd'))
 paraList = lapply(paraList, as.character)
 for (x in 1:length(paraList)) paraList[[x]] = ClearText(paraList[[x]])
-
+}
 }
 \seealso{
 \code{\link{TOI_News_Articles}},  \code{\link{TOI_News_Dataset}}

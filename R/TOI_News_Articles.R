@@ -34,7 +34,8 @@
 #' @seealso \code{\link{TOI_News_Dataset}}
 #'
 #' @examples
-#' # Creates Dataset by filtering 31 days from current date
+#' #### Creates Dataset by filtering 31 days from current date
+#' \dontrun{
 #' NewsDataset1 = TOI_News_Articles(keywords = "Politics In US",
 #' IsDataFrame = TRUE,
 #' IsDate = TRUE,
@@ -50,6 +51,7 @@
 #'
 #' # Write files to disk
 #' TOI_News_Articles(keywords = "Goibibo")
+#' }
 #' @export TOI_News_Articles
 
 TOI_News_Articles <- function(keywords, IsDataFrame = F, IsDate = F, start_date, end_date){
