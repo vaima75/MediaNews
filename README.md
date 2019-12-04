@@ -1,37 +1,82 @@
-## Welcome to GitHub Pages
+## MediaNews - Introduction
+  
+An implementation to perform analysis on different media channels by extracting text data from its source based on users choice of keywords. These data can be used to perform text analysis in order to identify patterns in the text.
 
-You can use the [editor on GitHub](https://github.com/vaima75/MediaNews/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+#### Prerequisites
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+For this package to run into your system (R or RStudio) following packages are requried:
 
-### Markdown
+* rvest
+* lubridate
+* svMisc
+* xml2
+* stopwords
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+#### Installing
 
-```markdown
-Syntax highlighted code block
+You can install the library as follows:
 
-# Header 1
-## Header 2
-### Header 3
+```r
+### Install Prerequisites
+pkgs <- c("rvest","lubridate","svMisc","xml2","stopwords")
+install.packages(pkgs)
+### Load Prerequisites
+lapply(pkgs, library, character.only = TRUE)
 
-- Bulleted
-- List
+### Install and Load requried package from CRAN
+install.package("MediaNews")
+library(MediaNews)
 
-1. Numbered
-2. List
+### To install package from GitHub
+install.package("devtools") #Run only once
+library(devtools)
+install_github("vaima75/MediaNews") #Run only once
+# OR
+devtools::install_github("vaima75/MediaNews") #Run only once
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Running the tests
 
-### Jekyll Themes
+#### 1. Extraction
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vaima75/MediaNews/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Following examples show how to extract text and get it in the form of DataFrame or write to disk
 
-### Support or Contact
+``` r
+# Creates Dataset by filtering 31 days from current date
+NewsDataset1 = TOI_News_Articles(keywords = "Politics In US", IsDataFrame = TRUE, IsDate = TRUE, start_date = Sys.Date()- 31, end_date = Sys.Date())
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+# Creates Dataset by custom filtering through dates
+NewsDataset2 = TOI_News_Articles(keywords = "BaseBall", IsDataFrame = TRUE, IsDate = TRUE, start_date = "2019-09-20", end_date = "2019-10-20")
+
+# Creates Dataset on keywords
+NewsDataset3 = TOI_News_Articles(keywords = "Goibibo", IsDataFrame = TRUE)
+
+# Write files to disk
+TOI_News_Articles(keywords = "Goibibo")
+```
+
+#### 2. Cleaning
+
+After extraction data in the form of DataFrame you can use customized text cleaning function to remove unwanted text from body.
+
+```r
+## Creates Dataset based on keysword 
+NewsData = TOI_News_Articles("Goibibo", IsDataFrame = TRUE)
+
+## Identify any potential factor columns
+vc = sapply(NewsData, is.factor)
+
+## Convert factors to characters
+NewsData[vc] = lapply(NewsData[vc], as.character)
+
+## Clean text on specific character columns
+for (i in 1:nrow(NewsData)) NewsData$News[i] = ClearText(NewsData$News[i])
+
+```
+## Author
+[Vatsal Aima](https://vaima75.github.io/)
+
+## License
+
+This project is licensed under the [GNU Lesser General Public License version 3](https://github.com/vaima75/MediaNews/blob/master/LICENSE).

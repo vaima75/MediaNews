@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1574821612427.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "AA495340",
+    "lastKnownWriteTime" : 1575096912,
+    "last_content_update" : 1575435014013,
+    "path" : "V:/CRAN/MediaNews/R/ClearText.R",
+    "project_path" : "R/ClearText.R",
+    "properties" : {
+        "cursorPosition" : "14,2",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

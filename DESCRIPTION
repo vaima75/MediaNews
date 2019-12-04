@@ -1,0 +1,23 @@
+Package: MediaNews
+Type: Package
+Title: Media News Extraction for Text Analysis 
+Version: 0.1.0
+Date: 2019-11-30
+Author: Vatsal Aima
+Maintainer: Vatsal Aima <vaima75@hotmail.com>
+Description: An implementation to perform analysis on different media
+    channels by extracting text data from its source based on users choice
+    of keywords. These data can be used to perform text analysis in order to
+    identify patterns in the text.
+License: LGPL-3
+Encoding: UTF-8
+LazyData: true
+OS_type: windows
+Imports: 
+    lubridate (>= 1.7.4),
+    rvest (>= 0.3.5),
+    stats (>= 3.6.1),
+    stopwords (>= 1.0),
+    svMisc (>= 1.1.0),
+    xml2 (>= 1.2.2)
+RoxygenNote: 7.0.1
