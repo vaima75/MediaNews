@@ -20,19 +20,13 @@ You can install the library as follows:
 ### Install Prerequisites
 pkgs <- c("rvest","lubridate","svMisc","xml2","stopwords")
 install.packages(pkgs)
-### Load Prerequisites
-lapply(pkgs, library, character.only = TRUE)
 
-### Install and Load requried package from CRAN
-install.package("MediaNews")
-library(MediaNews)
-
-### To install package from GitHub
+### Install and Load package from GitHub
 install.package("devtools") #Run only once
 library(devtools)
 install_github("vaima75/MediaNews") #Run only once
-# OR
-devtools::install_github("vaima75/MediaNews") #Run only once
+## Load Package
+library(MediaNews)
 
 ```
 
