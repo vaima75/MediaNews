@@ -3,7 +3,7 @@
 \name{TOI_News_Dataset}
 \alias{TOI_News_Dataset}
 \alias{TOI_News_Links}
-\title{Extract Interim Dataset Based on Sources}
+\title{Creates Interim Dataset}
 \usage{
 TOI_News_Dataset(keywords)
 
@@ -17,7 +17,7 @@ Returns DataFrame based on \code{keywords}
 }
 \description{
 Creates an interim news dataset based on user-defined keywords
-  for all possible links extracted from source.
+ for all possible links extracted from respective source.
 }
 \section{Functions}{
 \itemize{

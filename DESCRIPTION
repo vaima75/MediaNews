@@ -5,10 +5,10 @@ Version: 0.1.0
 Date: 2019-11-30
 Author: Vatsal Aima
 Maintainer: Vatsal Aima <vaima75@hotmail.com>
-Description: An implementation to perform analysis on different media
-    channels by extracting text data from its source based on users choice
-    of keywords. These data can be used to perform text analysis in order to
-    identify patterns in the text.
+Description: Extract textual data from different media channels 
+    through its source based on users choice of keywords. 
+    These data can be used to perform text analysis to 
+    identify patterns in respective media reporting.
 License: LGPL-3
 Encoding: UTF-8
 LazyData: true

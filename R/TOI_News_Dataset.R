@@ -1,28 +1,28 @@
-#' @title Extract Interim Dataset Based on Sources
+#'@title Creates Interim Dataset
 #'
-#' @description Creates an interim news dataset based on user-defined keywords
-#'   for all possible links extracted from source.
+#'@description Creates an interim news dataset based on user-defined keywords
+#'  for all possible links extracted from respective source.
 #'
-#' @param keywords A String, user-defined.
+#'@param keywords A String, user-defined.
 #'
-#' @return Returns DataFrame based on \code{keywords}
+#'@return Returns DataFrame based on \code{keywords}
 #'
-#' @author Vatsal Aima,  \email{vaima75@@hotmail.com}
+#'@author Vatsal Aima,  \email{vaima75@@hotmail.com}
 #'
-#' @import rvest
-#' @import lubridate
-#' @import svMisc
-#' @import xml2
-#' @importFrom stats na.omit
+#'@import rvest
+#'@import lubridate
+#'@import svMisc
+#'@import xml2
+#'@importFrom stats na.omit
 #'
-#' @seealso \code{\link{TOI_News_Articles}}
+#'@seealso \code{\link{TOI_News_Articles}}
 #'
 #' @examples
 #' #### Creates Dataset based on keysword
 #' \dontrun{
 #' NewsData = TOI_News_Dataset("Goibibo")
 #'}
-#' @export TOI_News_Dataset
+#'@export TOI_News_Dataset
 
 TOI_News_Dataset <- function(keywords){
   url_link_list <- TOI_News_Links(keywords)
@@ -31,7 +31,7 @@ TOI_News_Dataset <- function(keywords){
     # Reading the HTML code from the website
     newss <- read_html(link)
     # List ID
-    link_index <- which(url_link_list == link, arr.ind = T)
+    link_index <- which(url_link_list == link, arr.ind = TRUE)
 
     # Using CSS selectors to scrap links
     news_links <- html_nodes(newss, '.article .content a')

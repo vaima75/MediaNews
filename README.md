@@ -20,12 +20,14 @@ You can install the library as follows:
 ### Install Prerequisites
 pkgs <- c("rvest","lubridate","svMisc","xml2","stopwords")
 install.packages(pkgs)
+### Load Prerequisites
+lapply(pkgs, library, character.only = TRUE)
 
-### Install and Load package from GitHub
+### Install package from GitHub
 install.package("devtools") #Run only once
 library(devtools)
 install_github("vaima75/MediaNews") #Run only once
-## Load Package
+### Load the package
 library(MediaNews)
 
 ```

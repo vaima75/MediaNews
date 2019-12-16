@@ -1,20 +1,20 @@
-#' @title Text Cleaning: Custom Method
+#'@title Text Cleaning: Custom Method
 #'
-#' @description Cleans text and introduce custom stopwords to remove unwanted
-#'   words from given.
+#'@description Cleans text and introduce custom stopwords to remove unwanted
+#'  words from given data.
 #'
-#' @param Text A String or Character vector, user-defined.
+#'@param Text A String or Character vector, user-defined.
 #'
-#' @param CustomList A Character vector (Optional), user-defined vector to
-#'   introduce stopwords ("english") in \code{Text}.
+#'@param CustomList A Character vector (Optional), user-defined vector to
+#'  introduce stopwords ("english") in \code{Text}.
 #'
-#' @return Returns Character
+#'@return Returns Character
 #'
-#' @author Vatsal Aima,  \email{vaima75@@hotmail.com}
+#'@author Vatsal Aima,  \email{vaima75@@hotmail.com}
 #'
-#' @import stopwords
+#'@import stopwords
 #'
-#' @seealso \code{\link{TOI_News_Articles}},  \code{\link{TOI_News_Dataset}}
+#'@seealso \code{\link{TOI_News_Articles}},  \code{\link{TOI_News_Dataset}}
 #'
 #' @examples
 #' ################### Methodology #####################
@@ -58,7 +58,7 @@
 #' paraList = lapply(paraList, as.character)
 #' for (x in 1:length(paraList)) paraList[[x]] = ClearText(paraList[[x]])
 #'}
-#' @export ClearText
+#'@export ClearText
 
 ClearText = function(Text, CustomList = c("")){
 

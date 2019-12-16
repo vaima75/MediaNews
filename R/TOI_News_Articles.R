@@ -1,7 +1,7 @@
 #' @title Extract Media News
 #'
-#' @description Creates a DataFrame or Write files disk by extracting text data
-#'   from source and interim dataset based on user's keywords.
+#' @description Creates a DataFrame or Write files to disk by extracting text
+#'   data from source based on user's keywords.
 #'
 #' @param keywords A String, user-defined.
 #'
@@ -54,16 +54,16 @@
 #' }
 #' @export TOI_News_Articles
 
-TOI_News_Articles <- function(keywords, IsDataFrame = F, IsDate = F, start_date, end_date){
-  cat("\nPlease wait while I fetch pages based on keywords.....\n\n", fill = TRUE)
+TOI_News_Articles <- function(keywords, IsDataFrame = FALSE, IsDate = FALSE, start_date, end_date){
+  message("\nPlease wait while I fetch pages based on keywords.....\n\n")
   dataset <- TOI_News_Dataset(keywords)
   dataset[,2] <- gsub("https://timesofindia.indiatimes.com/articleshow/",NA, dataset[,2])
   dataset[,3] <- as_date(as.character(dataset[,3]))
   dataset <- na.omit(dataset)
 
   ## Date-Time Parsing for specific Article Extraction
-  if (IsDate == T) {
-    cat("\nApplying filters....\n", fill = TRUE)
+  if (IsDate == TRUE) {
+    message("\nApplying filters....\n")
     Sys.sleep(3)
     dataset <- subset(dataset, dataset[,3] >= start_date & dataset[,3] <= end_date)
   }
@@ -76,12 +76,12 @@ TOI_News_Articles <- function(keywords, IsDataFrame = F, IsDate = F, start_date,
   # List of CSS selector
   art_ext_class <- c('.Normal','._3WlLe')
   ts_ext_class <- c(".byline", ".as_byline", ".byline-content")
-  cat("NewsLinks Fetched: ",length(TOI_links), fill = TRUE)
+  message("NewsLinks Fetched: ",length(TOI_links))
   if (length(TOI_links) <= 0) {
-    cat("\nExtraction HALT!!\n", "Kindly change the filters","\n          OR","Switch to new topic for extraction\n", fill = TRUE)
+    message("\nExtraction HALT!!\n", "Kindly change the filters","\n          OR","Switch to new topic for extraction\n")
 
   }else{
-    cat("\n\n!...Extraction Begins...!\n\n", fill = TRUE)
+    message("\n\n!...Extraction Begins...!\n\n")
     for (web_url_link in TOI_links){
       # Reading the HTML code from the website
       webpage <- read_html(web_url_link)
@@ -107,7 +107,7 @@ TOI_News_Articles <- function(keywords, IsDataFrame = F, IsDate = F, start_date,
       ts_text <- html_text(ts_html)
 
       l_index <- which(TOI_links == web_url_link, arr.ind = T)
-      if (IsDataFrame == T) {
+      if (IsDataFrame == TRUE) {
         if (length(data_text) == 0 && length(ts_text) == 0) {
           data_text <- NA
           ts_text <- NA
@@ -135,23 +135,23 @@ TOI_News_Articles <- function(keywords, IsDataFrame = F, IsDate = F, start_date,
         text_dt <- data.frame(data_text, ts_text, stringsAsFactors = FALSE)
         ExtractData[[l_index]] <- text_dt
 
-        progress(l_index, progress.bar = T)
+        progress(l_index, progress.bar = TRUE)
         Sys.sleep(0.01)
-        if (l_index == length(TOI_links)) cat("\nExtraction Done\n", fill = TRUE)
+        if (l_index == length(TOI_links)) message("\nExtraction Done\n")
 
         if (web_url_link == TOI_links[length(TOI_links)]) {
           ExtractedDf <- do.call(rbind, ExtractData)
           dataset <- cbind(dataset, ExtractedDf)
           # dataset[[4]] <- I(ExtractData)
           colnames(dataset) <- c("HeadLines","Links","DOP","News","Details")
-          cat("\n!!!!! Dataset Extracted !!!!!", fill = TRUE)
+          message("\n!!!!! Dataset Extracted !!!!!")
           return(dataset)
         }
       }else{
-        cat("\n Writing Records.....\n")
+        message("\n Writing Records.....\n")
         write(data_text, paste0(as.character(l_index),"_TOI_text.txt"))
         if (web_url_link == TOI_links[length(TOI_links)]) {
-          cat("\n!!! Records Written in File System !!!", fill = TRUE)
+          message("\n!!! Records Written in File System !!!", fill = TRUE)
         }
       }
     }

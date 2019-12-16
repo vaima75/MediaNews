@@ -17,7 +17,7 @@ Returns Character
 }
 \description{
 Cleans text and introduce custom stopwords to remove unwanted
-  words from given.
+ words from given data.
 }
 \examples{
 ################### Methodology #####################

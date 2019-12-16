@@ -4,7 +4,13 @@
 \alias{TOI_News_Articles}
 \title{Extract Media News}
 \usage{
-TOI_News_Articles(keywords, IsDataFrame = F, IsDate = F, start_date, end_date)
+TOI_News_Articles(
+  keywords,
+  IsDataFrame = FALSE,
+  IsDate = FALSE,
+  start_date,
+  end_date
+)
 }
 \arguments{
 \item{keywords}{A String, user-defined.}
@@ -29,8 +35,8 @@ data should be extracted. \strong{\emph{NOTE}}: only provide
 Returns DataFrame or write files to the disk based on \code{keywords}
 }
 \description{
-Creates a DataFrame or Write files disk by extracting text data
-  from source and interim dataset based on user's keywords.
+Creates a DataFrame or Write files to disk by extracting text
+  data from source based on user's keywords.
 }
 \examples{
 #### Creates Dataset by filtering 31 days from current date
