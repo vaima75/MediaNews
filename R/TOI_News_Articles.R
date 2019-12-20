@@ -1,60 +1,59 @@
-#' @title Extract Media News
+#'@title Extract Media News
 #'
-#' @description Creates a DataFrame or Write files to disk by extracting text
-#'   data from source based on user's keywords.
+#'@description Creates a DataFrame or Write files to disk by extracting text
+#'  data from source based on user's keywords.
 #'
-#' @param keywords A String, user-defined.
+#'@param keywords A String, user-defined.
 #'
-#' @param IsDataFrame Boolean Value, to determine whether the outcome should be
-#'   a Dataframe or files written to disk. if set to \emph{TRUE} then retuns
-#'   DataFrame (default \emph{FALSE}).
+#'@param IsDataFrame Boolean Value, to determine whether the outcome should be a
+#'  Dataframe or files written to disk. if set to \emph{FALSE} then retuns the
+#'  files will be written to disk at stated working directory (default
+#'  \emph{TRUE}).
 #'
-#' @param IsDate Boolean Value, to determine whether to perform filtering
-#'   operations based on dates. If set to \emph{TRUE} then Date operations will
-#'   be applied (default \emph{FALSE}).
+#'@param IsDate Boolean Value, to determine whether to perform filtering
+#'  operations based on dates. If set to \emph{TRUE} then Date operations will
+#'  be applied (default \emph{FALSE}).
 #'
-#' @param start_date Date Value, provide the starting date \strong{FROM} where
-#'   the data should be extracted. NOTE: only provide \code{start_date} when
-#'   \code{IsDate} is set \emph{TRUE}
+#'@param start_date Date Value, provide the starting date \strong{FROM} where
+#'  the data should be extracted. \strong{\emph{NOTE}}: only provide
+#'  \code{start_date} when \code{IsDate} is set \emph{TRUE}.
 #'
-#' @param end_date Date Value, provide the ending date \strong{TO} where the
-#'   data should be extracted. \strong{\emph{NOTE}}: only provide
-#'   \code{end_date} when \code{IsDate} is set \emph{TRUE}
+#'@param end_date Date Value, provide the ending date \strong{TO} where the data
+#'  should be extracted. \strong{\emph{NOTE}}: only provide \code{end_date} when
+#'  \code{IsDate} is set \emph{TRUE}.
 #'
-#' @return Returns DataFrame or write files to the disk based on \code{keywords}
+#'@return Returns DataFrame or write files to the disk based on \code{keywords}
 #'
-#' @author Vatsal Aima,  \email{vaima75@@hotmail.com}
+#'@author Vatsal Aima,  \email{vaima75@@hotmail.com}
 #'
-#' @import rvest
-#' @import lubridate
-#' @import svMisc
-#' @import xml2
-#' @importFrom stats na.omit
+#'@import rvest
+#'@import lubridate
+#'@import svMisc
+#'@import xml2
+#'@importFrom stats na.omit
 #'
-#' @seealso \code{\link{TOI_News_Dataset}}
+#'@seealso \code{\link{TOI_News_Dataset}}
 #'
 #' @examples
 #' #### Creates Dataset by filtering 31 days from current date
-#' \dontrun{
+#'\donttest{
 #' NewsDataset1 = TOI_News_Articles(keywords = "Politics In US",
-#' IsDataFrame = TRUE,
 #' IsDate = TRUE,
 #' start_date = Sys.Date()- 31,
 #' end_date = Sys.Date())
 #'
 #' # Creates Dataset by custom filtering through dates
 #' NewsDataset2 = TOI_News_Articles(keywords = "BaseBall",
-#' IsDataFrame = TRUE,
 #' IsDate = TRUE,
 #' start_date = "2019-09-20",
 #' end_date = "2019-10-20")
 #'
 #' # Write files to disk
-#' TOI_News_Articles(keywords = "Goibibo")
-#' }
-#' @export TOI_News_Articles
+#' TOI_News_Articles(keywords = "Goibibo", IsDataFrame = FALSE)
+#'}
+#'@export TOI_News_Articles
 
-TOI_News_Articles <- function(keywords, IsDataFrame = FALSE, IsDate = FALSE, start_date, end_date){
+TOI_News_Articles <- function(keywords, IsDataFrame = TRUE, IsDate = FALSE, start_date, end_date){
   message("\nPlease wait while I fetch pages based on keywords.....\n\n")
   dataset <- TOI_News_Dataset(keywords)
   dataset[,2] <- gsub("https://timesofindia.indiatimes.com/articleshow/",NA, dataset[,2])

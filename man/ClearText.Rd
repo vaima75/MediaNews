@@ -23,8 +23,8 @@ Cleans text and introduce custom stopwords to remove unwanted
 ################### Methodology #####################
 ###### For DataFrame ######
 #### Creates Dataset based on keysword
-\dontrun{
-NewsData = TOI_News_Articles("Goibibo", IsDataFrame = TRUE)
+\donttest{
+NewsData = TOI_News_Articles("Goibibo")
 
 ## Identify any potential factor columns
 vc = sapply(NewsData, is.factor)
@@ -56,7 +56,7 @@ clearpara = ClearText(para,
                                        "detective",
                                        "scandal"))
 ########### For List #############
-\dontrun{
+\donttest{
 paraList = list(para, 1213, factor('aasd;kasdioasd'))
 paraList = lapply(paraList, as.character)
 for (x in 1:length(paraList)) paraList[[x]] = ClearText(paraList[[x]])
