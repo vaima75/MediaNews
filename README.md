@@ -1,6 +1,6 @@
 ## MediaNews - Introduction
   
-An implementation to perform analysis on different media channels by extracting textual data from its source, based on users choice of keywords. These data can be used to perform text analysis in order to identify patterns in respective media reporting. The media channels used in this package are print media from india. The data (or news) used are publically available to consumers.
+An implementation to perform analysis on different media channels by extracting textual data from its source, based on users choice of keywords. These data can be used to perform text analysis in order to identify patterns in respective media reporting. The media channels used in this package are print media from India. The data (or news) used are publicly available to consumers.
 #### Prerequisites
 
 For this package to run into your system (R or RStudio) following packages are requried:

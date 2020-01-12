@@ -26,7 +26,7 @@ Creates an interim news dataset based on user-defined keywords
 
 \examples{
 #### Creates Dataset based on keysword
-\dontrun{
+\donttest{
 NewsData = TOI_News_Dataset("Goibibo")
 }
 }

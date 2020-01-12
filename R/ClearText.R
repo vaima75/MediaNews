@@ -100,6 +100,6 @@ ClearText = function(Text, CustomList = c("")){
     Text <- trimws(Text)
     return(Text)
   }else{
-    cat("\nErr! Is it character variable you passed. \n", fill = TRUE)
+    message("\nErr! Is it character variable you passed. \n", fill = TRUE)
   }
 }

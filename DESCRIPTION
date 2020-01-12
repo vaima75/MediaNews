@@ -10,7 +10,7 @@ Description: Extract textual data from different media channels
     These data can be used to perform text analysis to 
     identify patterns in respective media reporting.
     The media channels used in this package are print media
-    from india. The data (or news) used are publically
+    from India. The data (or news) used are publicly
     available to consumers.
 License: LGPL-3
 Encoding: UTF-8

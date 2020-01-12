@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' #### Creates Dataset based on keysword
-#' \dontrun{
+#' \donttest{
 #' NewsData = TOI_News_Dataset("Goibibo")
 #'}
 #'@export TOI_News_Dataset
