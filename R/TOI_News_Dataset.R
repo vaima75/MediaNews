@@ -79,7 +79,7 @@ TOI_News_Dataset <- function(keywords){
   return(news_TOI_bigdata)
 }
 
-#' @describeIn TOI_News_Dataset Extracts Source Links
+#'@describeIn TOI_News_Dataset Extracts Source Links
 TOI_News_Links <- function(keywords){
   keys <- gsub(" ","-",keywords)
   TOI_link <- "https://timesofindia.indiatimes.com"
