@@ -19,8 +19,8 @@ You can install the library as follows:
 ### Install Prerequisites
 pkgs <- c("rvest","lubridate","svMisc","xml2","stopwords")
 install.packages(pkgs)
-### Load Prerequisites - Not Requried. Installation well be enough 
-lapply(pkgs, library, character.only = TRUE)
+### Load Prerequisites - Not Requried. Installation will be enough 
+# lapply(pkgs, library, character.only = TRUE)
 
 ### Install package from GitHub
 install.package("devtools") #Run only once
