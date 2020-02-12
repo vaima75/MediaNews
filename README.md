@@ -22,10 +22,16 @@ install.packages(pkgs)
 ### Load Prerequisites - Not Requried. Installation will be enough 
 # lapply(pkgs, library, character.only = TRUE)
 
+### Install package from CRAN
+install.package("MediaNews")
+
+############ OR ###################
+
 ### Install package from GitHub
 install.package("devtools") #Run only once
 library(devtools)
 install_github("vaima75/MediaNews") #Run only once
+
 ### Load the package
 library(MediaNews)
 
