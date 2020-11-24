@@ -6,9 +6,8 @@ An implementation to perform analysis on different media channels by extracting 
 For this package to run into your system (R or RStudio) following packages are requried:
 
 * rvest
-* lubridate
-* svMisc
 * xml2
+* lubridate
 * stopwords
 
 #### Installing
@@ -17,21 +16,15 @@ You can install the library as follows:
 
 ```r
 ### Install Prerequisites
-pkgs <- c("rvest","lubridate","svMisc","xml2","stopwords")
+pkgs <- c("rvest","xml2","lubridate","stopwords")
 install.packages(pkgs)
-### Load Prerequisites - Not Requried. Installation will be enough 
-# lapply(pkgs, library, character.only = TRUE)
-
-### Install package from CRAN
-install.package("MediaNews")
-
-############ OR ###################
+### Load Prerequisites - Not Requried. Installation well be enough 
+lapply(pkgs, library, character.only = TRUE)
 
 ### Install package from GitHub
 install.package("devtools") #Run only once
 library(devtools)
 install_github("vaima75/MediaNews") #Run only once
-
 ### Load the package
 library(MediaNews)
 

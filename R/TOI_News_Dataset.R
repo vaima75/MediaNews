@@ -10,10 +10,10 @@
 #'@author Vatsal Aima,  \email{vaima75@@hotmail.com}
 #'
 #'@import rvest
-#'@import lubridate
-#'@import svMisc
 #'@import xml2
+#'@import lubridate
 #'@importFrom stats na.omit
+#'@importFrom utils winProgressBar setWinProgressBar
 #'
 #'@seealso \code{\link{TOI_News_Articles}}
 #'
@@ -25,6 +25,7 @@
 #'@export TOI_News_Dataset
 
 TOI_News_Dataset <- function(keywords){
+  message("Extracting Pages....")
   url_link_list <- TOI_News_Links(keywords)
   datalist <- list()
   for (link in url_link_list) {
@@ -64,9 +65,7 @@ TOI_News_Dataset <- function(keywords){
     # List of Dataframes
     datalist[[link_index]] <- news_TOI
 
-    progress(link_index,max.value <- length(url_link_list))
-    Sys.sleep(0.01)
-    if (link_index == length(url_link_list)) cat("Pages Fetched !!", fill = TRUE)
+    if (link_index == length(url_link_list)) message("Pages Fetched !!")
     # compR <- round(((link_index/length(url_link_list))*100),2)
     # cat("Done: ", compR,"%\n")
   }
@@ -95,7 +94,7 @@ TOI_News_Links <- function(keywords){
   html_links <- html_attr(url_section, 'href')
   html_links <- paste0(TOI_link, html_links)
   html_links <- html_links[-c(1, length(html_links))]
-  # cat("No of Pages : ", length(html_links), "\n")
+
   if (length(html_links) == 0) {
     return(url_link)
   }else{
