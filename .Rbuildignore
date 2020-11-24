@@ -5,3 +5,4 @@
 ^\.Rhistory$
 ^data-raw$
 ^\.travis\.yml$
+^\_config\.yml$

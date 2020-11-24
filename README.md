@@ -1,6 +1,6 @@
 ## MediaNews - Introduction
   [![Travis-CI Build Status](https://travis-ci.com/vaima75/MediaNews.svg?branch=master)](https://travis-ci.com/github/vaima75/MediaNews)
-  [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-0.2.0-success)](https://cran.r-project.org/web/packages/MediaNews/index.html)	
+  [![CRAN_Status_Badge](https://img.shields.io/badge/CRAN-0.2.1-success)](https://cran.r-project.org/web/packages/MediaNews/index.html)	
   
 An implementation to perform analysis on different media channels by extracting textual data from its source, based on users choice of keywords. These data can be used to perform text analysis in order to identify patterns in respective media reporting. The media channels used in this package are print media from India. The data (or news) used are publicly available to consumers.
 #### Prerequisites
