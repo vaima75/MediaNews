@@ -3,3 +3,5 @@
 ^/README\.md$
 ^LICENSE$
 ^\.Rhistory$
+^data-raw$
+^\.travis\.yml$

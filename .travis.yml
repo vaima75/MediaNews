@@ -1,0 +1,14 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: r
+cache:
+  packages: true
+
+r:
+  - release
+  - devel
+
+r_build_args:
+  R CMD build
+  r_check_args --as-cran
+
