@@ -21,7 +21,7 @@
 #' ###### For DataFrame ######
 #' #### Creates Dataset based on keysword
 #'\donttest{
-#' NewsData = TOI_News_Articles("Goibibo")
+#' NewsData = TOI_News_Articles("AirLines")
 #'
 #' ## Identify any potential factor columns
 #' vc = sapply(NewsData, is.factor)

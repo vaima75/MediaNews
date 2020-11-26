@@ -40,16 +40,16 @@ Following examples show how to extract text and get it in the form of DataFrame 
 
 ``` r
 # Creates Dataset by filtering 31 days from current date
-NewsDataset1 = TOI_News_Articles(keywords = "Politics In US", IsDate = TRUE, start_date = Sys.Date()- 31, end_date = Sys.Date())
+NewsDataset1 = TOI_News_Articles(keywords = "US Politics", start_date = Sys.Date()- 31, end_date = Sys.Date())
 
 # Creates Dataset by custom filtering through dates
-NewsDataset2 = TOI_News_Articles(keywords = "BaseBall", IsDate = TRUE, start_date = "2019-09-20", end_date = "2019-10-20")
+NewsDataset2 = TOI_News_Articles(keywords = "BaseBall", start_date = "2019-09-20", end_date = "2019-10-20")
 
 # Creates Dataset on keywords
-NewsDataset3 = TOI_News_Articles(keywords = "Goibibo")
+NewsDataset3 = TOI_News_Articles(keywords = "AirLines")
 
 # Write files to disk
-TOI_News_Articles(keywords = "Goibibo",  IsDataFrame = FALSE)
+TOI_News_Articles(keywords = "AirLines",  AsDataFrame = FALSE)
 ```
 
 #### 2. Cleaning
@@ -58,7 +58,7 @@ After extraction data in the form of DataFrame you can use customized text clean
 
 ```r
 ## Creates Dataset based on keysword 
-NewsData = TOI_News_Articles("Goibibo")
+NewsData = TOI_News_Articles("AirLines")
 
 ## Identify any potential factor columns
 vc = sapply(NewsData, is.factor)

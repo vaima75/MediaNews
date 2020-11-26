@@ -20,7 +20,7 @@
 #' @examples
 #' #### Creates Dataset based on keysword
 #' \donttest{
-#' NewsData = TOI_News_Dataset("Goibibo")
+#' NewsData = TOI_News_Dataset("AirLines")
 #'}
 #'@export TOI_News_Dataset
 
@@ -38,24 +38,19 @@ TOI_News_Dataset <- function(keywords){
     news_links <- html_nodes(newss, '.article .content a')
     html_links <- html_attr(news_links, 'href')
     html_links <- paste0("https://timesofindia.indiatimes.com", html_links)
-    # cat("Page: ",link_index, "Html_Links Aricles",length(html_links),"\n")
 
     # Using CSS selectors to scrap the section
     headsLines <- html_nodes(newss,'.article .content a .title')
 
     # Converting the data to text
     news_headsLines <- html_text(headsLines)
-    # cat("Page: ",link_index, " News_HeadLines Aricles",length(news_headsLines),"\n")
 
     # Using CSS selectors to scrap the section
     TimeLines <- html_nodes(newss,'.meta')
-    # cat("Page: ",link_index, " News_TimeLines Aricles",length(TimeLines),"\n")
 
     # Converting date to text
     news_TimeLines <- html_text(TimeLines)
 
-    # Print Extracted URL's
-    # cat("url Done: ",link,"\n")
     if (length(html_links) == 0 || length(news_headsLines) == 0 || length(TimeLines) == 0) {
       break()
     }
@@ -66,8 +61,6 @@ TOI_News_Dataset <- function(keywords){
     datalist[[link_index]] <- news_TOI
 
     if (link_index == length(url_link_list)) message("Pages Fetched !!")
-    # compR <- round(((link_index/length(url_link_list))*100),2)
-    # cat("Done: ", compR,"%\n")
   }
   news_TOI_bigdata <- do.call(rbind, datalist)
   news_TOI_bigdata <- news_TOI_bigdata[!duplicated(news_TOI_bigdata[,1]),]

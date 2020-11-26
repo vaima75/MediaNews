@@ -1,8 +1,8 @@
 Package: MediaNews
 Type: Package
 Title: Media News Extraction for Text Analysis 
-Version: 0.2.1
-Date: 2020-11-25
+Version: 0.2.2
+Date: 2020-12-20
 Author: Vatsal Aima [aut, cre]
 Maintainer: Vatsal Aima <vaima75@hotmail.com>
 Description: Extract textual data from different media channels 

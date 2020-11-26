@@ -33,17 +33,14 @@
 #' @examples
 #' #### Creates Dataset by filtering 31 days from current date
 #'\donttest{
-#' NewsDataset1 = TOI_News_Articles(keywords = "Politics In US",
-#' start_date = Sys.Date()- 31,
-#' end_date = Sys.Date())
 #'
 #' # Creates Dataset by custom filtering through dates
-#' NewsDataset2 = TOI_News_Articles(keywords = "BaseBall",
+#' NewsDataset = TOI_News_Articles(keywords = "BaseBall",
 #' start_date = "2019-09-20",
 #' end_date = "2019-10-20")
 #'
 #' # Write files to disk
-#' TOI_News_Articles(keywords = "AirLines", IsDataFrame = FALSE)
+#' TOI_News_Articles(keywords = "AirLines", AsDataFrame = FALSE)
 #'}
 #'@export TOI_News_Articles
 
@@ -129,17 +126,10 @@ TOI_News_Articles <- function(keywords, AsDataFrame = TRUE, start_date = NULL, e
         }
 
         l_index <- which(TOI_links == web_url_link, arr.ind = T)
-        # cat("\n#####################\n")
-        # cat("Link ID : ", l_index,"\n")
-        # cat("Link :", web_url_link,"\n")
-        # cat("Data Length : ",length(data_text),"\n")
-        # cat("Text Lenght : ",length(ts_text),"\n")
 
         text_dt <- data.frame(data_text, ts_text, stringsAsFactors = FALSE)
         ExtractData[[l_index]] <- text_dt
 
-        # message(paste0(rep('>', l_index / length(TOI_links) * options()$width), collapse = ''))
-        # message(paste0(round(l_index / length(TOI_links)*100), '% completed'))
         setWinProgressBar(pb, l_index, title = paste0( round(l_index/length(TOI_links)*100), "% completed"))
         Sys.sleep(.01)
 
@@ -147,7 +137,6 @@ TOI_News_Articles <- function(keywords, AsDataFrame = TRUE, start_date = NULL, e
           close(pb)
           ExtractedDf <- do.call(rbind, ExtractData)
           dataset <- cbind(dataset, ExtractedDf)
-          # dataset[[4]] <- I(ExtractData)
           colnames(dataset) <- c("HeadLines","Links","DOP","News","Details")
           message("\014!!!!! Dataset Extracted !!!!!")
           return(dataset)

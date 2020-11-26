@@ -27,7 +27,7 @@ Creates an interim news dataset based on user-defined keywords
 \examples{
 #### Creates Dataset based on keysword
 \donttest{
-NewsData = TOI_News_Dataset("Goibibo")
+NewsData = TOI_News_Dataset("AirLines")
 }
 }
 \seealso{

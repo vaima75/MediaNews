@@ -37,17 +37,14 @@ Creates a DataFrame or Write files to disk by extracting text
 \examples{
 #### Creates Dataset by filtering 31 days from current date
 \donttest{
-NewsDataset1 = TOI_News_Articles(keywords = "Politics In US",
-start_date = Sys.Date()- 31,
-end_date = Sys.Date())
 
 # Creates Dataset by custom filtering through dates
-NewsDataset2 = TOI_News_Articles(keywords = "BaseBall",
+NewsDataset = TOI_News_Articles(keywords = "BaseBall",
 start_date = "2019-09-20",
 end_date = "2019-10-20")
 
 # Write files to disk
-TOI_News_Articles(keywords = "AirLines", IsDataFrame = FALSE)
+TOI_News_Articles(keywords = "AirLines", AsDataFrame = FALSE)
 }
 }
 \seealso{
