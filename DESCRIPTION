@@ -3,15 +3,14 @@ Type: Package
 Title: Media News Extraction for Text Analysis 
 Version: 0.2.1
 Date: 2020-11-25
-Author: Vatsal Aima
+Author: Vatsal Aima [aut, cre]
 Maintainer: Vatsal Aima <vaima75@hotmail.com>
 Description: Extract textual data from different media channels 
-    through its source, based on users choice of keywords. 
+    through its source based on users choice of keywords. 
     These data can be used to perform text analysis to 
     identify patterns in respective media reporting.
-    The media channels used in this package are print media
-    from India. The data (or news) used are publicly
-    available to consumers.
+    The media channels used in this package are print media.
+    The data (or news) used are publicly available to consumers.
 License: LGPL-3
 Encoding: UTF-8
 LazyData: true
